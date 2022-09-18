@@ -1,0 +1,4 @@
+add 7
+divide 3
+add 32
+substract 16

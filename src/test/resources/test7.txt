@@ -1,0 +1,17 @@
+add 2
+add 5
+add 4232
+add 9
+add 0
+add 3
+add 2
+multiply 1
+multiply 2
+multiply 6
+divide 2
+divide 1
+divide 4
+subtract 8
+subtract 323
+subtract 432
+apply 6

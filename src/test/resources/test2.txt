@@ -1,0 +1,6 @@
+multiply 5
+divide 2
+apply 8
+multiply 5
+divide 2
+apply 8
