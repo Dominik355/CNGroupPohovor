@@ -9,6 +9,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -32,7 +33,6 @@ public class ExecutorTest {
     }
 
     static Stream<Arguments> executeFromFileArgumentsProvider() {
-        new BigDecimal(20);
         return Stream.of(
                 arguments(null, Collections.emptyList(), true),
                 arguments("test0.txt", Collections.emptyList(), true),
@@ -51,10 +51,10 @@ public class ExecutorTest {
     }
     
     static List<BigDecimal> toBigDecimalList(Double... values) {
-        List<BigDecimal> list = new ArrayList<>();
-        Stream.of(values)
-                .forEachOrdered(value -> list.add(new BigDecimal(value)));
-        return list;
+        return Stream.of(values)
+                        .map(BigDecimal::new)
+                        .collect(Collectors.toList());
+
     }
 
 }
