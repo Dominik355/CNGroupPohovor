@@ -13,6 +13,21 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
+/**
+EDIT:
+There are 3 iterations over all elements to get the final result. 
+First we map everything to object EquationHolder, then find APPLY elements, 
+then iterate over each equation. This could be done in 2 iterations (1 inner loop).
+We could simply iterate over stream 1 by one, map each element to equation holder. 
+When we decet APPLY, just do inner loop for all read commands until this one. 
+Then simply go on until next APPLY is found, then run again all commands from last APPLY until this one. 
+With 1 loop consuming stream, 1 nested loop for rewinding commands until last APPLY found. 
+This way we can get rid of 1 unnecessary loop. 
+( joinin mapping and finding APPLY (triggers as i called them) in 1 loop (stream, call it whatever you want). 
+Used approach (3 loops) would be better option if we would need to validate whole file first. 
+Maybe calculation itself would be much more expensive then iteration and we would want to validate 
+everything first before running any part of those equations (they are not equations really but .. you understand)
+*/
 public class Executor {
 
     private final FileLoader fileLoader;
