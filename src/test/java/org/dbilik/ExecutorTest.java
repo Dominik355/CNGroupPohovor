@@ -26,8 +26,6 @@ public class ExecutorTest {
             assertThrows(Exception.class, () -> executor.executeFromFile(path));
         } else {
             List<BigDecimal> results =  executor.executeFromFile(path);
-            System.out.println("Results: " + results);
-            System.out.println("Excepted: " + expectedResults);
             IntStream.range(0, results.size())
                     .forEachOrdered(i -> assertEquals(results.get(i).compareTo(expectedResults.get(i)), 0));
         }
